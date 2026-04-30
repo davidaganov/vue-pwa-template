@@ -1,0 +1,22 @@
+{
+  "json": {
+    "__frozen": [],
+    "values": {
+      "home.badge": "Template v{version}",
+      "home.hero.title": "Vue PWA",
+      "home.hero.subtitle": "Starter Template",
+      "home.hero.description": "A modern Vue 3 PWA template with offline support, auto-updates, and touch-optimized interface.",
+      "home.actions.getStarted": "Get Started",
+      "home.actions.readMore": "Read More",
+      "about.title": "About",
+      "about.description": "This template is a starting point for your Vue 3 PWA project.",
+      "about.features.i18n": "i18n Support",
+      "about.features.tailwind": "Tailwind CSS",
+      "about.features.pwa": "PWA Support",
+      "about.features.tests": "Unit Tests (Vitest)",
+      "about.features.pinia": "Pinia Support",
+      "about.features.offline": "Offline Mode",
+      "about.returnButton": "← Return"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "tailwind-config",
+  "requires": [],
+  "copy": ["src/assets/styles/lib/tailwind.css"],
+  "patches": [],
+  "packageJson": {}
+}

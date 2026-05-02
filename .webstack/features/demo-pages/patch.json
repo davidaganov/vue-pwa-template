@@ -1,0 +1,23 @@
+{
+  "name": "demo-pages",
+  "requires": [],
+  "copy": [
+    "src/views/HomeView.vue",
+    "src/views/AboutView.vue",
+    "src/components/pages/home/HomePage.vue",
+    "src/components/pages/home/HomeHero.vue",
+    "src/components/pages/home/HomeActions.vue",
+    "src/components/pages/about/AboutPage.vue",
+    "src/components/pages/about/AboutInfo.vue",
+    "src/components/ui/UiButton.vue",
+    "src/layouts/default.vue",
+    "src/__tests__/components/ui/UiButton.spec.ts",
+    "src/__tests__/components/pages/home/HomeHero.spec.ts",
+    "src/__tests__/components/pages/home/HomeActions.spec.ts",
+    "src/__tests__/components/pages/home/HomePage.spec.ts",
+    "src/__tests__/components/pages/about/AboutPage.spec.ts",
+    "src/__tests__/components/pages/about/AboutInfo.spec.ts"
+  ],
+  "patches": [],
+  "packageJson": {}
+}

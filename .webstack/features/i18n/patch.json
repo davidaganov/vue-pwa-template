@@ -151,13 +151,15 @@
         "import { createI18n } from \"vue-i18n\"",
         "import enMessages from \"@/i18n/locales/en.json\"",
         "import ruMessages from \"@/i18n/locales/ru.json\""
-      ]
+      ],
+      "optional": true
     },
     {
       "file": "src/__tests__/utils.ts",
       "action": "insert-before-marker",
       "marker": "// @webstack:utils-type-imports",
-      "lines": ["import { LOCALES } from \"@/types\""]
+      "lines": ["import { LOCALES } from \"@/types\""],
+      "optional": true
     },
     {
       "file": "src/__tests__/utils.ts",
@@ -173,13 +175,15 @@
         "    [LOCALES.RU]: ruMessages",
         "  }",
         "})"
-      ]
+      ],
+      "optional": true
     },
     {
       "file": "src/__tests__/utils.ts",
       "action": "insert-before-marker",
       "marker": "// @webstack:utils-plugins",
-      "lines": ["i18n,"]
+      "lines": ["i18n,"],
+      "optional": true
     }
   ],
   "packageJson": {

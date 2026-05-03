@@ -2,6 +2,11 @@
   "name": "demo-pages",
   "requires": [],
   "copy": [
+    "src/router/index.ts",
+    "src/router/mainRoutes.ts",
+    "src/types/enums/path.enum.ts",
+    "src/types/enums/index.ts",
+    "src/types/index.ts",
     "src/views/HomeView.vue",
     "src/views/AboutView.vue",
     "src/components/pages/home/HomePage.vue",
@@ -18,6 +23,43 @@
     "src/__tests__/components/pages/about/AboutPage.spec.ts",
     "src/__tests__/components/pages/about/AboutInfo.spec.ts"
   ],
-  "patches": [],
-  "packageJson": {}
+  "patches": [
+    {
+      "file": "src/main.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:import",
+      "lines": ["import router from \"@/router\""]
+    },
+    {
+      "file": "src/main.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:use",
+      "lines": ["app.use(router)"]
+    },
+    {
+      "file": "src/types/enums/index.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:enum-exports",
+      "lines": ["export * from \"./path.enum\""]
+    },
+    {
+      "file": "src/types/index.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:type-exports",
+      "lines": ["export * from \"./enums\""]
+    },
+    {
+      "file": "src/router/mainRoutes.ts",
+      "action": "replace-entire",
+      "content": "import type { RouteRecordRaw } from \"vue-router\"\nimport { ROUTE_PATH, ROUTE_NAME } from \"@/types\"\n\nexport const routes: RouteRecordRaw[] = [\n  {\n    path: ROUTE_PATH.HOME,\n    component: () => import(\"@/layouts/default.vue\"),\n    children: [\n      {\n        path: \"\",\n        name: ROUTE_NAME.HOME,\n        component: () => import(\"@/views/HomeView.vue\")\n      },\n      {\n        path: ROUTE_PATH.ABOUT,\n        name: ROUTE_NAME.ABOUT,\n        component: () => import(\"@/views/AboutView.vue\")\n      }\n    ]\n  }\n]\n"
+    },
+    {
+      "file": "src/App.vue",
+      "action": "replace-entire",
+      "content": "<template>\n  <div class=\"bg-background min-h-screen\">\n    <RouterView />\n  </div>\n</template>\n"
+    }
+  ],
+  "packageJson": {
+    "dependencies": ["vue-router"]
+  }
 }

@@ -40,19 +40,22 @@
       "file": "src/__tests__/utils.ts",
       "action": "insert-before-marker",
       "marker": "// @webstack:utils-imports",
-      "lines": ["import { createPinia } from \"pinia\""]
+      "lines": ["import { createPinia } from \"pinia\""],
+      "optional": true
     },
     {
       "file": "src/__tests__/utils.ts",
       "action": "insert-before-marker",
       "marker": "// @webstack:utils-init",
-      "lines": ["const pinia = createPinia()"]
+      "lines": ["const pinia = createPinia()"],
+      "optional": true
     },
     {
       "file": "src/__tests__/utils.ts",
       "action": "insert-before-marker",
       "marker": "// @webstack:utils-plugins",
-      "lines": ["pinia,"]
+      "lines": ["pinia,"],
+      "optional": true
     }
   ],
   "packageJson": {

@@ -1,62 +1,84 @@
 # Vue PWA Template
 
-A modern Vue 3 PWA template with offline support, auto-updates, and touch-optimized interface. Built with Vite, TypeScript, Pinia, and Tailwind CSS.
+Vue 3 + Vite **PWA** template: offline-ready service worker flow, TypeScript, Tailwind CSS, and optional Pinia, vue-i18n, and Vitest—composed via `.webstack` when you use the official generator.
 
-## Key Features
+**Repository:** [github.com/davidaganov/vue-pwa-template](https://github.com/davidaganov/vue-pwa-template)
 
-- **Vue 3 + Vite**: Lightning-fast development with HMR and highly optimized production builds.
-- **PWA Ready**: Out-of-the-box offline support with Service Workers and auto-update logic.
-- **Tailwind CSS**: Utility-first styling for rapid UI development and mobile optimization.
-- **Routing**: Pre-configured `vue-router` with support for nested layouts and views.
-- **State Management**: Integrated **Pinia** for scalable and reactive state handling.
-- **i18n**: Custom lightweight localization system with full TypeScript type safety.
-- **Unit Testing**: Robust testing environment powered by **Vitest** and **Vue Test Utils**.
+## Recommended setup: WebStack CLI
 
-## Prerequisites
+Use **[`@davidaganov/stack`](https://www.npmjs.com/package/@davidaganov/stack)** ([CLI source](https://github.com/davidaganov/stack)):
 
-- **Node.js** (v18 or higher)
+```bash
+npx @davidaganov/stack
+```
 
-## Quick Start
+Pick **Vue PWA Template**, then:
 
-1.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
-2.  **Start development server**:
-    ```bash
-    npm run dev
-    ```
-3.  **Build for production**:
-    ```bash
-    npm run build
-    ```
+| Mode | What you get |
+| :--- | :--- |
+| **Empty** | Minimal app from `.webstack/template-empty`. |
+| **Recommended** | Demo pages plus **Pinia**, **i18n** (vue-i18n + Polyglot Keeper), and **Vitest**. |
+| **Custom** | Demo pages; toggle **Pinia**, **i18n**, and **Unit tests** independently. |
 
-## Internationalization (i18n)
+Vue Router and the demo routes/views live in the baseline **demo-pages** slice for any non-empty preset; they are not optional in the wizard. Disabling **i18n** or **Pinia** yields static English UI where those layers are omitted.
 
-The project includes a type-safe localization system. The primary locale file is located at `src/i18n/locales/en.json`.
+Maintainers: **[GUIDLINE.md](https://github.com/davidaganov/stack/blob/main/GUIDLINE.md)** in [davidaganov/stack](https://github.com/davidaganov/stack).
 
-Usage in components:
+---
+
+## Manual setup (clone this repository)
+
+1. `npm install`
+2. `npm run dev`
+3. `npm run build` for production assets.
+
+Requires **Node.js** v18+.
+
+---
+
+## Features
+
+- Vite + Vue 3 with HMR.
+- PWA shell (service worker, update strategy as configured in the template).
+- Tailwind CSS.
+- Optional Pinia, vue-i18n + typed locale files, Vitest + Vue Test Utils.
+
+---
+
+## Internationalization (when enabled)
+
+Locale JSON under `src/i18n/locales/`. Typical usage:
+
 ```typescript
-import { useI18n } from "@/i18n"
-const { t } = useI18n()
+import { useI18n } from "vue-i18n"
 
+const { t } = useI18n()
 t("home.hero.title")
 ```
 
+`npm run translate` runs Polyglot Keeper sync when the **i18n** layer is present.
+
+---
+
 ## Testing
 
-Testing is handled via Vitest.
+```bash
+npm test
+npm run test:coverage
+npm run lint
+```
 
-- Run all tests: `npm test`
-- Check coverage: `npm run test:coverage`
-- Linting: `npm run lint`
+Vitest is only present when the **tests** module was selected in the wizard (or when working from the full reference checkout).
 
-## Project Structure
+---
 
-- `src/` — Vue 3 source code (components, views, stores).
-- `public/` — Static assets and PWA manifest icons.
-- `src/i18n/` — Localization logic and translation files.
-- `src/types/` — Global TypeScript interfaces and enums.
+## Layout
+
+- `src/` — Components, views, stores, router.
+- `public/` — Static assets and PWA icons.
+- `src/types/` — Shared TypeScript surface where applicable.
+
+---
 
 ## License
 

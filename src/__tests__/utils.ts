@@ -1,12 +1,12 @@
 import type { MountingOptions } from "@vue/test-utils"
 import { mount } from "@vue/test-utils"
 import type { Component } from "vue"
-import { createRouter, createMemoryHistory } from "vue-router"
-import { createPinia } from "pinia"
 import { createI18n } from "vue-i18n"
-import { ROUTE_NAME, ROUTE_PATH, LOCALES } from "@/types"
+import { createMemoryHistory, createRouter } from "vue-router"
+import { createPinia } from "pinia"
 import enMessages from "@/i18n/locales/en.json"
 import ruMessages from "@/i18n/locales/ru.json"
+import { LOCALES, ROUTE_NAME, ROUTE_PATH } from "@/types"
 
 export function mountWithPlugins(
   component: Component,

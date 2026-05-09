@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue"
-import { RouterLink, type RouteLocationRaw } from "vue-router"
+import { type RouteLocationRaw, RouterLink } from "vue-router"
 
 const props = withDefaults(
   defineProps<{
@@ -45,7 +45,12 @@ const handleClick = (e: MouseEvent, navigate?: () => void) => {
 </script>
 
 <template>
-  <router-link v-if="to" :to="to" custom v-slot="{ navigate }">
+  <router-link
+    v-if="to"
+    :to="to"
+    custom
+    v-slot="{ navigate }"
+  >
     <button
       class="flex items-center justify-center w-full rounded-lg px-5 py-2.5 transition-all duration-300 cursor-pointer hover:brightness-110"
       :class="buttonClasses"
@@ -59,7 +64,10 @@ const handleClick = (e: MouseEvent, navigate?: () => void) => {
       >
         <slot />
       </span>
-      <span v-else class="text-sm font-medium text-white opacity-70">
+      <span
+        v-else
+        class="text-sm font-medium text-white opacity-70"
+      >
         Loading...
       </span>
     </button>
@@ -79,7 +87,10 @@ const handleClick = (e: MouseEvent, navigate?: () => void) => {
     >
       <slot />
     </span>
-    <span v-else class="text-sm font-medium text-white opacity-70">
+    <span
+      v-else
+      class="text-sm font-medium text-white opacity-70"
+    >
       Loading...
     </span>
   </button>

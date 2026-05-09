@@ -16,14 +16,16 @@ const handleGetStarted = () => {
       type="primary"
       @click="handleGetStarted"
     >
-      <!-- @webstack:home-actions-get-started -->Get Started
+      <!-- @webstack:home-actions-get-started -->
+      Get Started
     </UiButton>
     <UiButton
       class="w-full"
       type="outline"
       :to="{ name: ROUTE_NAME.ABOUT }"
     >
-      <!-- @webstack:home-actions-read-more -->Read More
+      <!-- @webstack:home-actions-read-more -->
+      Read More
     </UiButton>
   </div>
 </template>

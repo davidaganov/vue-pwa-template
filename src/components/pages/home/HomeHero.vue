@@ -6,9 +6,11 @@ const appStore = useAppStore()
 
 <template>
   <div>
-      <span class="text-xs mb-6 inline-flex justify-center items-center rounded-full mx-auto bg-primary/10 px-4 py-1 border border-primary/20 font-bold text-primary tracking-widest">
-        {{ $t("home.badge", { version: appStore.version }) }}
-      </span>
+    <span
+      class="text-xs mb-6 inline-flex justify-center items-center rounded-full mx-auto bg-primary/10 px-4 py-1 border border-primary/20 font-bold text-primary tracking-widest"
+    >
+      {{ $t("home.badge", { version: appStore.version }) }}
+    </span>
 
     <div class="mx-auto mb-3 flex flex-col font-bold tracking-tighter justify-center items-center">
       <h1 class="text-white leading-[1.1] text-4xl md:text-6xl">

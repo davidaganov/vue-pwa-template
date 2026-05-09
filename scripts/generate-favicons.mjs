@@ -34,9 +34,7 @@ async function generate() {
     try {
       await fs.access(source)
     } catch (e) {
-      console.error(
-        `Error: Source file ${source} not found. Please place your master icon there.`
-      )
+      console.error(`Error: Source file ${source} not found. Please place your master icon there.`)
       return
     }
 
@@ -79,10 +77,7 @@ async function generate() {
         manifest.icons = manifest.icons.filter((icon) =>
           ["192x192", "512x512"].includes(icon.sizes)
         )
-        await fs.writeFile(
-          path.join(dest, fileName),
-          JSON.stringify(manifest, null, 2)
-        )
+        await fs.writeFile(path.join(dest, fileName), JSON.stringify(manifest, null, 2))
         console.log(`Generated: ${fileName} (filtered)`)
       } else {
         await fs.writeFile(path.join(dest, fileName), file.contents)

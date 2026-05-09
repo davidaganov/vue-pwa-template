@@ -1,10 +1,10 @@
 import { mount } from "@vue/test-utils"
-import { describe, it, expect } from "vitest"
+import { describe, expect, it } from "vitest"
 import { createI18n } from "vue-i18n"
-import UiLanguageSwitcher from "@/components/ui/UiLanguageSwitcher.vue"
-import { LOCALES } from "@/types"
 import enMessages from "@/i18n/locales/en.json"
 import ruMessages from "@/i18n/locales/ru.json"
+import { LOCALES } from "@/types"
+import UiLanguageSwitcher from "@/components/ui/UiLanguageSwitcher.vue"
 
 function createI18nPlugin(locale: LOCALES = LOCALES.EN) {
   return createI18n({
@@ -38,9 +38,7 @@ describe("UiLanguageSwitcher", () => {
     })
 
     const buttons = wrapper.findAll("button")
-    const activeButton = buttons.find((b) =>
-      b.classes().includes("bg-primary/20")
-    )
+    const activeButton = buttons.find((b) => b.classes().includes("bg-primary/20"))
 
     expect(activeButton?.text()).toBe("en")
   })

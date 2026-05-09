@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest"
+import { describe, expect, it } from "vitest"
 import HomePage from "@/components/pages/home/HomePage.vue"
 import { mountWithPlugins } from "@/__tests__/utils"
 

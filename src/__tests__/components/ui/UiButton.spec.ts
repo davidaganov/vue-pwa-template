@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils"
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
-import { createRouter, createMemoryHistory } from "vue-router"
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
+import { createMemoryHistory, createRouter } from "vue-router"
 import UiButton from "@/components/ui/UiButton.vue"
 
 function createTestRouter() {

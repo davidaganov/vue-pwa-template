@@ -1,9 +1,10 @@
 import type { MountingOptions } from "@vue/test-utils"
 import { mount } from "@vue/test-utils"
 import type { Component } from "vue"
-import { createRouter, createMemoryHistory } from "vue-router"
+import { createMemoryHistory, createRouter } from "vue-router"
 // @webstack:utils-imports
 import { ROUTE_NAME, ROUTE_PATH } from "@/types"
+
 // @webstack:utils-type-imports
 
 export function mountWithPlugins(
@@ -35,7 +36,7 @@ export function mountWithPlugins(
   return mount(component, {
     global: {
       plugins: [
-        router,
+        router
         // @webstack:utils-plugins
       ],
       ...options.global

@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <div
-    class="flex min-h-screen overflow-hidden flex-col bg-background relative"
-  >
+  <div class="flex min-h-screen overflow-hidden flex-col bg-background relative">
     <!-- Top Bar with Language Switcher -->
     <div class="absolute top-4 pt-4 right-6 z-50">
       <!-- @webstack:layout-top-bar -->

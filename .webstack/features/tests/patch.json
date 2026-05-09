@@ -1,11 +1,7 @@
 {
   "name": "tests",
   "requires": [],
-  "copy": [
-    "vitest.config.ts",
-    "src/__tests__/App.spec.ts",
-    "src/__tests__/utils.ts"
-  ],
+  "copy": ["vitest.config.ts", "src/__tests__/App.spec.ts", "src/__tests__/utils.ts"],
   "patches": [],
   "packageJson": {
     "devDependencies": [

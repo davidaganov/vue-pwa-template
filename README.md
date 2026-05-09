@@ -14,11 +14,11 @@ npx @davidaganov/stack
 
 Pick **Vue PWA Template**, then:
 
-| Mode | What you get |
-| :--- | :--- |
-| **Empty** | Minimal app from `.webstack/template-empty`. |
+| Mode            | What you get                                                                      |
+| :-------------- | :-------------------------------------------------------------------------------- |
+| **Empty**       | Minimal app from `.webstack/template-empty`.                                      |
 | **Recommended** | Demo pages plus **Pinia**, **i18n** (vue-i18n + Polyglot Keeper), and **Vitest**. |
-| **Custom** | Demo pages; toggle **Pinia**, **i18n**, and **Unit tests** independently. |
+| **Custom**      | Demo pages; toggle **Pinia**, **i18n**, and **Unit tests** independently.         |
 
 Vue Router and the demo routes/views live in the baseline **demo-pages** slice for any non-empty preset; they are not optional in the wizard. Disabling **i18n** or **Pinia** yields static English UI where those layers are omitted.
 

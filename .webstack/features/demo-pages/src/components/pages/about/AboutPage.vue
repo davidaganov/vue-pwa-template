@@ -7,11 +7,13 @@ import UiButton from "@/components/ui/UiButton.vue"
 <template>
   <div class="flex flex-col items-center justify-center min-h-[80vh] px-6 text-center">
     <h1 class="text-4xl font-bold text-white tracking-tighter mb-4">
-      <!-- @webstack:about-title -->About
+      <!-- @webstack:about-title -->
+      About
     </h1>
 
     <p class="max-w-lg text-gray-400 text-lg leading-relaxed mb-8">
-      <!-- @webstack:about-description -->This template is a starting point for your Vue 3 PWA project.
+      <!-- @webstack:about-description -->
+      This template is a starting point for your Vue 3 PWA project.
     </p>
 
     <AboutInfo />
@@ -21,7 +23,8 @@ import UiButton from "@/components/ui/UiButton.vue"
       class="mt-8 max-w-xs"
       :to="{ name: ROUTE_NAME.HOME }"
     >
-      <!-- @webstack:about-return-button -->← Return
+      <!-- @webstack:about-return-button -->
+      ← Return
     </UiButton>
   </div>
 </template>

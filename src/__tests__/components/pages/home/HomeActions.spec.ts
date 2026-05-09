@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest"
+import { describe, expect, it, vi } from "vitest"
 import HomeActions from "@/components/pages/home/HomeActions.vue"
 import { mountWithPlugins } from "@/__tests__/utils"
 

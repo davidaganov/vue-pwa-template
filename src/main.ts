@@ -1,11 +1,11 @@
 import { createApp } from "vue"
-import { createPinia } from "pinia"
 import { createI18n } from "vue-i18n"
+import { createPinia } from "pinia"
 import router from "@/router"
-import App from "@/App.vue"
-import { LOCALES } from "@/types/enums/locales.enum"
 import enMessages from "@/i18n/locales/en.json"
 import ruMessages from "@/i18n/locales/ru.json"
+import { LOCALES } from "@/types/enums/locales.enum"
+import App from "@/App.vue"
 import "@/assets/styles/main.css"
 
 const i18n = createI18n({
@@ -26,4 +26,3 @@ app.use(router)
 app.use(i18n)
 
 app.mount("#app")
-

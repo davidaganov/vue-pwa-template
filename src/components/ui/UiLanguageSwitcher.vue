@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { useI18n } from "vue-i18n"
-import { LOCALES, type Locale } from "@/types"
+import { type Locale, LOCALES } from "@/types"
 
 const { locale } = useI18n()
 

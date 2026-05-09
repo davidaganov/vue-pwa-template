@@ -1,10 +1,7 @@
 {
   "name": "pinia",
   "requires": [],
-  "copy": [
-    "src/stores/app.ts",
-    "src/__tests__/stores/app.spec.ts"
-  ],
+  "copy": ["src/stores/app.ts", "src/__tests__/stores/app.spec.ts"],
   "patches": [
     {
       "file": "src/main.ts",

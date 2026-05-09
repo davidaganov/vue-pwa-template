@@ -1,6 +1,6 @@
-import { describe, it, expect } from "vitest"
-import AboutPage from "@/components/pages/about/AboutPage.vue"
+import { describe, expect, it } from "vitest"
 import AboutInfo from "@/components/pages/about/AboutInfo.vue"
+import AboutPage from "@/components/pages/about/AboutPage.vue"
 import { mountWithPlugins } from "@/__tests__/utils"
 
 describe("AboutPage", () => {

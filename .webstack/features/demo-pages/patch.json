@@ -56,7 +56,7 @@
     {
       "file": "src/App.vue",
       "action": "replace-entire",
-      "content": "<template>\n  <div class=\"bg-background min-h-screen\">\n    <RouterView />\n  </div>\n</template>\n"
+      "content": "<template>\n  <div class=\"app-shell\">\n    <RouterView />\n  </div>\n</template>\n\n<style scoped>\n.app-shell {\n  min-height: 100vh;\n  background-color: var(--color-background, #050a14);\n}\n</style>\n"
     }
   ],
   "packageJson": {

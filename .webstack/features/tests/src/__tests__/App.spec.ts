@@ -29,7 +29,7 @@ describe("App", () => {
     expect(wrapper.findComponent({ name: "RouterView" }).exists()).toBe(true)
   })
 
-  it("has correct background class", () => {
+  it("has correct root shell", () => {
     const router = createTestRouter()
     const wrapper = mount(App, {
       global: {
@@ -37,7 +37,9 @@ describe("App", () => {
       }
     })
     const root = wrapper.find("div")
-    expect(root.classes()).toContain("bg-background")
-    expect(root.classes()).toContain("min-h-screen")
+    const cls = root.classes().join(" ")
+    const hasTailwindShell = cls.includes("bg-background") && cls.includes("min-h-screen")
+    const hasBemShell = cls.includes("app-shell")
+    expect(hasTailwindShell || hasBemShell).toBe(true)
   })
 })

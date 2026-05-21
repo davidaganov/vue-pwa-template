@@ -1,6 +1,6 @@
 {
   "name": "vue-pwa-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modern Vue 3 PWA template with offline support, auto-updates, and touch-optimized interface.",
   "type": "module",
   "keywords": [
@@ -14,7 +14,7 @@
     "offline",
     "service-worker"
   ],
-  "homepage": "https://github.com/davidaganov/vue-pwa-template",
+  "homepage": "https://aganov.dev/en/docs/guides/starters/vue-pwa-template",
   "bugs": {
     "url": "https://github.com/davidaganov/vue-pwa-template/issues"
   },
@@ -24,7 +24,7 @@
   },
   "author": {
     "name": "David Aganov",
-    "url": "https://github.com/davidaganov"
+    "url": "https://aganov.dev"
   },
   "license": "MIT",
   "engines": {

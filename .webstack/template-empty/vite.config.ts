@@ -1,4 +1,3 @@
-import tailwindcss from "@tailwindcss/vite"
 import vue from "@vitejs/plugin-vue"
 import { fileURLToPath, URL } from "node:url"
 import { defineConfig } from "vite"
@@ -7,7 +6,7 @@ import vueDevTools from "vite-plugin-vue-devtools"
 import { pwaConfig } from "./pwa.config"
 
 export default defineConfig({
-  plugins: [tailwindcss(), vue(), vueDevTools(), VitePWA(pwaConfig)],
+  plugins: [vue(), vueDevTools(), VitePWA(pwaConfig)],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url))

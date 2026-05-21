@@ -8,11 +8,9 @@ const handleGetStarted = () => {
 </script>
 
 <template>
-  <div
-    class="flex w-full gap-2 flex-col mt-8 max-w-[180px] md:gap-4 md:flex-row md:mt-12 md:max-w-[340px]"
-  >
+  <div class="home-actions">
     <UiButton
-      class="w-full"
+      class="home-actions__btn"
       type="primary"
       @click="handleGetStarted"
     >
@@ -20,7 +18,7 @@ const handleGetStarted = () => {
       Get Started
     </UiButton>
     <UiButton
-      class="w-full"
+      class="home-actions__btn"
       type="outline"
       :to="{ name: ROUTE_NAME.ABOUT }"
     >
@@ -29,3 +27,27 @@ const handleGetStarted = () => {
     </UiButton>
   </div>
 </template>
+
+<style scoped>
+.home-actions {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  max-width: 180px;
+}
+
+.home-actions__btn {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .home-actions {
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 3rem;
+    max-width: 340px;
+  }
+}
+</style>

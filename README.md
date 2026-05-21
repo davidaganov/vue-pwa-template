@@ -3,10 +3,11 @@
 Vue 3 + Vite **PWA** template: offline-ready service worker flow, TypeScript, Tailwind CSS, and optional Pinia, vue-i18n, and Vitest—composed via `.webstack` when you use the official generator.
 
 **Repository:** [github.com/davidaganov/vue-pwa-template](https://github.com/davidaganov/vue-pwa-template)
+**Catalog starters:** [github.com/davidaganov/stack](https://aganov.dev/en/docs/guides/starters)
 
-## Recommended setup: WebStack CLI
+## Recommended setup
 
-Use **[`@davidaganov/stack`](https://www.npmjs.com/package/@davidaganov/stack)** ([CLI source](https://github.com/davidaganov/stack)):
+Use **[@davidaganov/stack](https://www.npmjs.com/package/@davidaganov/stack)**:
 
 ```bash
 npx @davidaganov/stack
@@ -15,37 +16,30 @@ npx @davidaganov/stack
 Pick **Vue PWA Template**, then:
 
 | Mode            | What you get                                                                      |
-| :-------------- | :-------------------------------------------------------------------------------- |
+| --------------- | --------------------------------------------------------------------------------- |
 | **Empty**       | Minimal app from `.webstack/template-empty`.                                      |
 | **Recommended** | Demo pages plus **Pinia**, **i18n** (vue-i18n + Polyglot Keeper), and **Vitest**. |
 | **Custom**      | Demo pages; toggle **Pinia**, **i18n**, and **Unit tests** independently.         |
 
-Vue Router and the demo routes/views live in the baseline **demo-pages** slice for any non-empty preset; they are not optional in the wizard. Disabling **i18n** or **Pinia** yields static English UI where those layers are omitted.
+---
 
-Maintainers: **[GUIDLINE.md](https://github.com/davidaganov/stack/blob/main/GUIDLINE.md)** in [davidaganov/stack](https://github.com/davidaganov/stack).
+## Manual setup
+
+1. `git clone https://github.com/davidaganov/vue-pwa-template.git`
+2. `cd vue-pwa-template`
+3. `npm install`
+4. `npm run dev`
+5. `npm run build` for production assets.
 
 ---
 
-## Manual setup (clone this repository)
+## Prerequisites
 
-1. `npm install`
-2. `npm run dev`
-3. `npm run build` for production assets.
-
-Requires **Node.js** v18+.
+- **Node.js** v18+.
 
 ---
 
-## Features
-
-- Vite + Vue 3 with HMR.
-- PWA shell (service worker, update strategy as configured in the template).
-- Tailwind CSS.
-- Optional Pinia, vue-i18n + typed locale files, Vitest + Vue Test Utils.
-
----
-
-## Internationalization (when enabled)
+## Internationalization
 
 Locale JSON under `src/i18n/locales/`. Typical usage:
 
@@ -56,7 +50,16 @@ const { t } = useI18n()
 t("home.hero.title")
 ```
 
-`npm run translate` runs Polyglot Keeper sync when the **i18n** layer is present.
+`npm run translate` runs [Polyglot Keeper](https://aganov.dev/en/docs/about/projects/polyglot-keeper) sync when the **i18n** layer is present.
+
+---
+
+## Features
+
+- Vite + Vue 3.
+- PWA shell (service worker, update strategy as configured in the template).
+- Tailwind CSS.
+- Optional Pinia, vue-i18n + typed locale files, Vitest + Vue Test Utils.
 
 ---
 
@@ -82,4 +85,4 @@ Vitest is only present when the **tests** module was selected in the wizard (or 
 
 ## License
 
-MIT © David Aganov
+MIT © [David Aganov](https://aganov.dev/en)

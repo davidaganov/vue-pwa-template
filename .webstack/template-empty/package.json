@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@tailwindcss/vite": "^4.2.4",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@tsconfig/node24": "^24.0.4",
     "@types/node": "^25.6.0",
     "@vitejs/plugin-vue": "^6.0.6",
@@ -35,8 +35,6 @@
     "favicons": "^7.2.0",
     "globals": "^17.5.0",
     "prettier": "^3.8.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.1",
     "vite": "^7.3.2",

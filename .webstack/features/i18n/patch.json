@@ -55,7 +55,7 @@
     {
       "file": ".env.example",
       "action": "replace-marker",
-      "marker": "# No environment variables required for empty template",
+      "marker": "# Example environment variables for this project",
       "lines": ["VITE_POLYGLOT_API_KEY=your_api_key_here"]
     },
     {

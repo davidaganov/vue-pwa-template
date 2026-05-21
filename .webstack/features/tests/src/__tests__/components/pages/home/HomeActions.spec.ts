@@ -34,11 +34,11 @@ describe("HomeActions", () => {
     consoleSpy.mockRestore()
   })
 
-  it("has responsive layout classes", () => {
+  it("has responsive layout (utility or BEM container)", () => {
     const wrapper = mountWithPlugins(HomeActions)
     const root = wrapper.find("div")
     const cls = root.classes().join(" ")
-    expect(cls).toContain("flex-col")
-    expect(cls).toContain("md:flex-row")
+    expect(cls.includes("home-actions") || cls.includes("flex-col")).toBe(true)
+    expect(cls.includes("home-actions") || cls.includes("md:flex-row")).toBe(true)
   })
 })

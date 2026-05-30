@@ -1,0 +1,81 @@
+{
+  "name": "tailwind",
+  "requires": [
+    "demo-pages"
+  ],
+  "patches": [
+    {
+      "file": "src/views/HomeView.vue",
+      "action": "replace-entire",
+      "content": "<script setup lang=\"ts\">\nimport HomePage from \"@/components/pages/home/HomePage.vue\"\n</script>\n\n<template>\n  <div>\n    <HomePage />\n  </div>\n</template>\n"
+    },
+    {
+      "file": "src/views/AboutView.vue",
+      "action": "replace-entire",
+      "content": "<script setup lang=\"ts\">\nimport AboutPage from \"@/components/pages/about/AboutPage.vue\"\n</script>\n\n<template>\n  <div>\n    <AboutPage />\n  </div>\n</template>\n"
+    },
+    {
+      "file": "src/layouts/default.vue",
+      "action": "replace-entire",
+      "content": "<script setup lang=\"ts\">\n// @webstack:layout-imports\n</script>\n\n<template>\n  <div class=\"flex min-h-screen overflow-hidden flex-col bg-background relative\">\n    <!-- Top Bar with Language Switcher -->\n    <div class=\"absolute top-4 pt-4 right-6 z-50\">\n      <!-- @webstack:layout-top-bar -->\n    </div>\n\n    <div class=\"flex-1 z-20 flex justify-center min-h-screen flex-col h-full p-5\">\n      <RouterView />\n    </div>\n\n    <!-- Background Glow -->\n    <div\n      class=\"absolute z-10 pointer-events-none bottom-10 -left-20 w-64 h-64 bg-violet-600/10 rounded-full blur-[100px]\"\n    />\n    <div\n      class=\"absolute z-10 pointer-events-none bottom-20 -right-20 w-80 h-80 bg-violet-600/10 rounded-full blur-[80px]\"\n    />\n  </div>\n</template>\n"
+    },
+    {
+      "file": "src/components/ui/UiButton.vue",
+      "action": "replace-entire",
+      "content": "<script setup lang=\"ts\">\nimport { computed } from \"vue\"\nimport { type RouteLocationRaw, RouterLink } from \"vue-router\"\n\nconst props = withDefaults(\n  defineProps<{\n    type?: \"primary\" | \"secondary\" | \"outline\"\n    disabled?: boolean\n    loading?: boolean\n    to?: RouteLocationRaw\n  }>(),\n  {\n    type: \"primary\",\n    disabled: false,\n    loading: false,\n    to: undefined\n  }\n)\n\nconst emit = defineEmits<{\n  (e: \"click\", event: MouseEvent): void\n}>()\n\nconst isDisabled = computed(() => props.disabled || props.loading)\n\nconst buttonClasses = computed(() => [\n  \"inline-flex items-center justify-center w-full rounded-lg px-5 py-2.5 transition-all duration-300 no-underline\",\n  {\n    \"bg-primary shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:brightness-110 cursor-pointer\":\n      props.type === \"primary\",\n    \"bg-secondary border border-white/10 hover:brightness-110 cursor-pointer\":\n      props.type === \"secondary\",\n    \"border border-primary/50 bg-primary/5 hover:brightness-110 cursor-pointer\": props.type === \"outline\",\n    \"opacity-50 cursor-not-allowed pointer-events-none\": isDisabled.value\n  }\n])\n\nconst textClasses = computed(() => [\n  \"text-sm font-medium tracking-wide\",\n  {\n    \"text-white\": props.type === \"primary\" || props.type === \"secondary\",\n    \"text-primary\": props.type === \"outline\"\n  }\n])\n\nconst onClick = (event: MouseEvent) => {\n  if (isDisabled.value) {\n    event.preventDefault()\n    return\n  }\n  emit(\"click\", event)\n}\n</script>\n\n<template>\n  <RouterLink\n    v-if=\"to\"\n    :to=\"to\"\n    :class=\"buttonClasses\"\n    :aria-disabled=\"isDisabled || undefined\"\n    :tabindex=\"isDisabled ? -1 : undefined\"\n    @click=\"onClick\"\n  >\n    <span\n      v-if=\"!loading\"\n      :class=\"textClasses\"\n    >\n      <slot />\n    </span>\n    <span\n      v-else\n      class=\"text-sm font-medium text-white opacity-70\"\n    >\n      Loading...\n    </span>\n  </RouterLink>\n\n  <button\n    v-else\n    type=\"button\"\n    :class=\"buttonClasses\"\n    :disabled=\"isDisabled\"\n    @click=\"onClick\"\n  >\n    <span\n      v-if=\"!loading\"\n      :class=\"textClasses\"\n    >\n      <slot />\n    </span>\n    <span\n      v-else\n      class=\"text-sm font-medium text-white opacity-70\"\n    >\n      Loading...\n    </span>\n  </button>\n</template>\n"
+    },
+    {
+      "file": "src/components/pages/home/HomePage.vue",
+      "action": "replace-entire",
+      "content": "<script setup lang=\"ts\">\nimport HomeActions from \"@/components/pages/home/HomeActions.vue\"\nimport HomeHero from \"@/components/pages/home/HomeHero.vue\"\n</script>\n\n<template>\n  <div class=\"flex flex-col items-center justify-center min-h-[80vh] px-6 text-center\">\n    <HomeHero />\n    <HomeActions />\n  </div>\n</template>\n"
+    },
+    {
+      "file": "src/components/pages/home/HomeHero.vue",
+      "action": "replace-entire",
+      "content": "<script setup lang=\"ts\">\n// @webstack:hero-imports\n// @webstack:hero-store-init\n\n// @webstack:hero-version\nconst appVersion = \"1.0.0\"\n</script>\n\n<template>\n  <div>\n    <span\n      class=\"text-xs mb-6 inline-flex justify-center items-center rounded-full mx-auto bg-primary/10 px-4 py-1 border border-primary/20 font-bold text-primary tracking-widest\"\n    >\n      <!-- @webstack:hero-badge -->\n      Template v{{ appVersion }}\n    </span>\n\n    <div class=\"mx-auto mb-3 flex flex-col font-bold tracking-tighter justify-center items-center\">\n      <h1 class=\"text-white leading-[1.1] text-4xl md:text-6xl\">\n        <!-- @webstack:hero-title -->\n        Vue PWA\n      </h1>\n      <h2 class=\"text-primary leading-[1.1] text-4xl md:text-6xl\">\n        <!-- @webstack:hero-subtitle -->\n        Starter Template\n      </h2>\n    </div>\n\n    <p class=\"mt-4 mx-auto text-gray-400 max-w-[65%] leading-relaxed text-lg md:text-xl\">\n      <!-- @webstack:hero-description -->\n      A modern Vue 3 PWA template with offline support, auto-updates, and touch-optimized interface.\n    </p>\n  </div>\n</template>\n"
+    },
+    {
+      "file": "src/components/pages/home/HomeActions.vue",
+      "action": "replace-entire",
+      "content": "<script setup lang=\"ts\">\nimport { ROUTE_NAME } from \"@/types\"\nimport UiButton from \"@/components/ui/UiButton.vue\"\n\nconst handleGetStarted = () => {\n  console.log(\"Get Started\")\n}\n</script>\n\n<template>\n  <div\n    class=\"flex w-full gap-2 flex-col mt-8 max-w-[180px] md:gap-4 md:flex-row md:mt-12 md:max-w-[340px]\"\n  >\n    <UiButton\n      class=\"w-full\"\n      type=\"primary\"\n      @click=\"handleGetStarted\"\n    >\n      <!-- @webstack:home-actions-get-started -->\n      Get Started\n    </UiButton>\n    <UiButton\n      class=\"w-full\"\n      type=\"outline\"\n      :to=\"{ name: ROUTE_NAME.ABOUT }\"\n    >\n      <!-- @webstack:home-actions-read-more -->\n      Read More\n    </UiButton>\n  </div>\n</template>\n"
+    },
+    {
+      "file": "src/components/pages/about/AboutPage.vue",
+      "action": "replace-entire",
+      "content": "<script setup lang=\"ts\">\nimport { ROUTE_NAME } from \"@/types\"\nimport AboutInfo from \"@/components/pages/about/AboutInfo.vue\"\nimport UiButton from \"@/components/ui/UiButton.vue\"\n</script>\n\n<template>\n  <div class=\"flex flex-col items-center justify-center min-h-[80vh] px-6 text-center\">\n    <h1 class=\"text-4xl font-bold text-white tracking-tighter mb-4\">\n      <!-- @webstack:about-title -->\n      About\n    </h1>\n\n    <p class=\"max-w-lg text-gray-400 text-lg leading-relaxed mb-8\">\n      <!-- @webstack:about-description -->\n      This template is a starting point for your Vue 3 PWA project.\n    </p>\n\n    <AboutInfo />\n\n    <UiButton\n      type=\"outline\"\n      class=\"mt-8 max-w-xs\"\n      :to=\"{ name: ROUTE_NAME.HOME }\"\n    >\n      <!-- @webstack:about-return-button -->\n      ← Return\n    </UiButton>\n  </div>\n</template>\n"
+    },
+    {
+      "file": "src/components/pages/about/AboutInfo.vue",
+      "action": "replace-entire",
+      "content": "<script setup lang=\"ts\">\n// @webstack:about-info-imports\n\nconst features = [\n  // @webstack:about-features\n  { title: \"PWA Support\", icon: \"📱\" },\n  { title: \"Offline Mode\", icon: \"⚡\" },\n  { title: \"Tailwind CSS\", icon: \"🎨\" },\n  { title: \"Vue Router\", icon: \"🛣️\" }\n]\n</script>\n\n<template>\n  <div class=\"grid grid-cols-2 gap-3 w-full max-w-md\">\n    <div\n      v-for=\"feature in features\"\n      class=\"flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10\"\n      :key=\"feature.title\"\n    >\n      <span class=\"text-xl\">{{ feature.icon }}</span>\n      <span class=\"text-sm font-medium text-gray-300\">\n        {{ feature.title }}\n      </span>\n    </div>\n  </div>\n</template>\n"
+    },
+    {
+      "file": "src/App.vue",
+      "action": "replace-entire",
+      "content": "<template>\n  <div class=\"bg-background min-h-screen\">\n    <RouterView />\n  </div>\n</template>\n"
+    },
+    {
+      "file": ".prettierrc.json",
+      "action": "replace-marker",
+      "marker": "\"plugins\": [\"@trivago/prettier-plugin-sort-imports\"]",
+      "content": "\"plugins\": [\"prettier-plugin-tailwindcss\", \"@trivago/prettier-plugin-sort-imports\"]"
+    },
+    {
+      "file": "vite.config.ts",
+      "action": "replace-entire",
+      "content": "import tailwindcss from \"@tailwindcss/vite\"\nimport vue from \"@vitejs/plugin-vue\"\nimport { fileURLToPath, URL } from \"node:url\"\nimport { defineConfig } from \"vite\"\nimport { VitePWA } from \"vite-plugin-pwa\"\nimport vueDevTools from \"vite-plugin-vue-devtools\"\nimport { pwaConfig } from \"./pwa.config\"\n\nexport default defineConfig({\n  plugins: [tailwindcss(), vue(), vueDevTools(), VitePWA(pwaConfig)],\n  resolve: {\n    alias: {\n      \"@\": fileURLToPath(new URL(\"./src\", import.meta.url))\n    }\n  }\n})\n"
+    }
+  ],
+  "packageJson": {
+    "devDependencies": [
+      "@tailwindcss/vite",
+      "prettier-plugin-tailwindcss",
+      "tailwindcss"
+    ]
+  },
+  "copy": [
+    "src/assets/styles/main.css",
+    "src/assets/styles/lib/tailwind.css",
+    "src/assets/styles/variables.css"
+  ]
+}
